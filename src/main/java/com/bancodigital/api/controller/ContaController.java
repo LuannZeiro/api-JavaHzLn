@@ -33,11 +33,13 @@ public class ContaController {
     }
 
     @PutMapping("/depositar/{id}")
+    // @PostMapping ("/deposito/{id}")
     public ResponseEntity<Conta> depositar(@PathVariable Long id, @RequestParam double valor) {
         return ResponseEntity.ok(contaService.realizarDeposito(id, valor));
     }
 
     @PutMapping("/sacar/{id}")
+    // @PostMapping ("/saque/{id}")
     public ResponseEntity<Conta> sacar(@PathVariable Long id, @RequestParam double valor) {
         return ResponseEntity.ok(contaService.realizarSaque(id, valor));
     }

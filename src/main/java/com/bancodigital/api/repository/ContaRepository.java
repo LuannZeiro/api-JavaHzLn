@@ -27,6 +27,8 @@ public class ContaRepository {
     }
 
     public void encerrarConta(Long id) {
+        // if / throws
         buscarPorId(id).ifPresent(conta -> conta.setAtiva(false));
+          // .orElse(ResponseEntity.notFound().build());
     }
 }

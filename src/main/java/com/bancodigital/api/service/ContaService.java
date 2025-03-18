@@ -1,13 +1,16 @@
 package com.bancodigital.api.service;
 
-import com.bancodigital.api.model.Conta;
-import com.bancodigital.api.repository.ContaRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+
+import com.bancodigital.api.model.Conta;
+import com.bancodigital.api.repository.ContaRepository;
 
 @Service
 public class ContaService {
@@ -50,7 +53,7 @@ public class ContaService {
                 conta.setSaldo(conta.getSaldo() - valor);
                 return conta;
             } else {
-                throw new IllegalArgumentException("Saldo insuficiente");
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Saldo Insulficiente");
             }
         }
         throw new IllegalArgumentException("Conta não encontrada");

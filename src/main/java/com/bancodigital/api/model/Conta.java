@@ -15,7 +15,7 @@ public class Conta {
     private String nomeTitular;
     private String cpfTitular;
     private LocalDate dataAbertura;
-    private double saldo;
+    private double saldo; // big decimal
     private boolean ativa;
     private String tipo;
 }
